@@ -24,7 +24,7 @@ for i in new:
         lenth=len(i)
         large.clear()
         large.append(i)
-    elif len(i)==lenth:
+    elif len(i)==lenth and i not in large:
         large.append(i)
 
 print("***Largest Sequence/s***")
