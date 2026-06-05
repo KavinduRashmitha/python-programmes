@@ -1,25 +1,24 @@
 n=input("Enter Values: ").split(",")
 y=n.pop(0)
-y=list(y)
+y=[int(y)]
 n=list(map(int,n))
-y=list(map(int,y))
 x=0
-new=[]
+new=set()
 for i in n:
     if i==y[x]+1 or i==y[x]:
         y.append(i)
         x+=1
     else:
         z=tuple(y)
-        new.append(z)
+        new.add(z)
         y.clear()
         y.append(i)
         x=0
 z=tuple(y)
-new.append(z)
+new.add(z)
 
-lenth=len(new[0])
-large=[new[0]]
+lenth=0
+large=[]
 for i in new:
     if len(i)>lenth:
         lenth=len(i)
