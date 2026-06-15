@@ -1,25 +1,37 @@
+#Inputs
 n=input("Enter Values: ").split(",")
-y=n.pop(0)
-y=[int(y)]
-n=list(map(int,n))
-x=0
-new=set()
-for i in n:
-    if i==y[x]+1 or i==y[x]:
-        y.append(i)
-        x+=1
-    else:
-        z=tuple(y)
-        new.add(z)
-        y.clear()
-        y.append(i)
-        x=0
-z=tuple(y)
-new.add(z)
+#End
 
+#Variables
+n_list=sorted(list(set(map(int,n))))
+IsDone=False
+AllDone=False
+Final_set=set()
+#End
+
+#Proceder
+while (len(n_list)!=0):
+    temp_list=[n_list.pop(0)]
+    count=0
+    while IsDone==False:
+        if temp_list[count]+1 in n_list:
+            temp_list.append(temp_list[count]+1)
+            n_list.remove(temp_list[count]+1)
+            count+=1
+        else:
+            IsDone=True
+    ListToTuple=tuple(temp_list)
+    Final_set.add(ListToTuple)
+    temp_list.clear()
+    IsDone=False 
+print(Final_set)
+#End   
+            
+
+#LogicToFindTheLargestOne
 lenth=0
 large=[]
-for i in new:
+for i in Final_set:
     if len(i)>lenth:
         lenth=len(i)
         large.clear()
@@ -30,3 +42,4 @@ for i in new:
 print("***Largest Sequence/s***")
 for i in large:
     print(i)
+#End
