@@ -5,7 +5,6 @@ n=input("Enter Values: ").split(",")
 #Variables
 n_list=sorted(list(set(map(int,n))))
 IsDone=False
-AllDone=False
 Final_set=set()
 #End
 
